@@ -1,0 +1,12 @@
+scal n=10000 i=0 {'gains': 45, 'components': 188, 'aug_components': 45, 'stable_path': 45, 'chain': 45, 'cycles': 2, 'reverse_paths': 0, 'even_paths': 141, 'unstable_fixed_by_cycles': 0, 'worse_off': 44}
+scal n=10000 i=1 {'gains': 51, 'components': 206, 'aug_components': 51, 'stable_path': 50, 'chain': 50, 'cycles': 6, 'reverse_paths': 0, 'even_paths': 149, 'unstable_fixed_by_cycles': 1, 'worse_off': 51}
+scal n=10000 i=2 {'gains': 39, 'components': 158, 'aug_components': 39, 'stable_path': 39, 'chain': 39, 'cycles': 3, 'reverse_paths': 0, 'even_paths': 116, 'unstable_fixed_by_cycles': 0, 'worse_off': 39}
+large p1=0.99 p2=0.2 geometric {'gains': 1, 'components': 1, 'aug_components': 1, 'stable_path': 1, 'chain': 1, 'cycles': 0, 'reverse_paths': 0, 'even_paths': 0, 'unstable_fixed_by_cycles': 0, 'worse_off': 1}
+large p1=0.99 p2=0.2 flip_geometric {'gains': 5, 'components': 9, 'aug_components': 5, 'stable_path': 5, 'chain': 5, 'cycles': 2, 'reverse_paths': 0, 'even_paths': 2, 'unstable_fixed_by_cycles': 0, 'worse_off': 5}
+large p1=0.99 p2=0.5 geometric {'gains': 5, 'components': 8, 'aug_components': 5, 'stable_path': 5, 'chain': 5, 'cycles': 3, 'reverse_paths': 0, 'even_paths': 0, 'unstable_fixed_by_cycles': 0, 'worse_off': 5}
+large p1=0.99 p2=0.5 flip_geometric {'gains': 9, 'components': 18, 'aug_components': 9, 'stable_path': 9, 'chain': 9, 'cycles': 3, 'reverse_paths': 0, 'even_paths': 6, 'unstable_fixed_by_cycles': 0, 'worse_off': 9}
+large p1=0.99 p2=0.8 geometric {'gains': 0, 'components': 0, 'aug_components': 0, 'stable_path': 0, 'chain': 0, 'cycles': 0, 'reverse_paths': 0, 'even_paths': 0, 'unstable_fixed_by_cycles': 0, 'worse_off': 0}
+large p1=0.99 p2=0.8 flip_geometric {'gains': 8, 'components': 15, 'aug_components': 8, 'stable_path': 8, 'chain': 8, 'cycles': 2, 'reverse_paths': 0, 'even_paths': 5, 'unstable_fixed_by_cycles': 0, 'worse_off': 8}
+cfg n=5000 L=5 p2=0.8 {'gains': 85, 'components': 311, 'aug_components': 88, 'stable_path': 84, 'chain': 84, 'cycles': 1, 'reverse_paths': 3, 'even_paths': 219, 'unstable_fixed_by_cycles': 4, 'worse_off': 87}
+cfg n=5000 L=20 p2=0.2 {'gains': 0, 'components': 0, 'aug_components': 0, 'stable_path': 0, 'chain': 0, 'cycles': 0, 'reverse_paths': 0, 'even_paths': 0, 'unstable_fixed_by_cycles': 0, 'worse_off': 0}
+TOTAL {'gains': 248, 'components': 914, 'aug_components': 251, 'stable_path': 246, 'chain': 246, 'cycles': 22, 'reverse_paths': 3, 'even_paths': 638, 'unstable_fixed_by_cycles': 5, 'worse_off': 249}

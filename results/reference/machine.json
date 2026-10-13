@@ -1,0 +1,11 @@
+{
+ "platform": "macOS 26.6 (arm64)",
+ "cpu": "Apple M5 (4 performance + 6 efficiency cores)",
+ "cores": "10 cores",
+ "memory": "16 GB",
+ "python": "3.9.13",
+ "numpy": "2.0.2",
+ "scipy": "1.13.1",
+ "ortools": "9.15.6755",
+ "note": "results of the submitted manuscript; one-thread runs four at a time"
+}

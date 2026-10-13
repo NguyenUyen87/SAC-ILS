@@ -1,0 +1,9 @@
+# Versions used for the results of the paper (Python 3.9.13); also tested with Python 3.11.
+# numpy is pinned: the generated instances depend on its random streams (tests/test_reference.py).
+numpy==2.0.2
+scipy==1.13.1
+pandas==2.2.3
+ortools==9.15.6755
+matplotlib==3.9.4
+psutil>=5.9
+pytest>=8
