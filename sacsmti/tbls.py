@@ -1,11 +1,11 @@
-"""TBLS (Viet et al.) for MAX-SMTI, and the TBLS-ILS control, in a sparse implementation.
+"""TBLS (Qiu 2025, arXiv:2409.10575) for MAX-SMTI, and the TBLS-ILS control, in a sparse implementation.
 
 The search keeps a strict tie-breaking strategy S and a matching that is stable for S
 (hence weakly stable). Moves: an adjustment (a single agent is promoted in the tie of an
 indifferent partner) or, with probability pd or when no adjustment exists, a disruption
 (the ties of ku men and kw women are broken again at random); the matching is then
-repaired by removing blocking pairs under S. Same random draws as the MATLAB code of
-TBLS (MatlabRNG). Every per-agent structure is stored only for the agent's own list, so
+repaired by removing blocking pairs under S. TBLS has no published code; this is a
+re-implementation of its pseudocode. Random numbers come from MatlabRNG. Every per-agent structure is stored only for the agent's own list, so
 memory grows with the number of acceptable pairs instead of n^2.
 
 SparseSearch is also the source of the Gale-Shapley start and of the perturbation of
@@ -16,7 +16,7 @@ Input: men[m] = {w: rank}, women[w] = {m: rank} (0-based ids, ranks >= 1).
 import time
 import numpy as np
 
-from .rng import MatlabRNG  # the Mersenne-Twister stream of the MATLAB code of TBLS
+from .rng import MatlabRNG
 
 MEN, WOMEN = 0, 1
 
@@ -205,7 +205,7 @@ class SparseSearch:
 
 def run(men, women, variant="TBLS", max_iters=3000, ku=5, kw=5, pd=0.05, c=0.9, T=None, restart_after=50,
         seed=None, rng=None, stop_when_perfect=True, time_limit=None, checkpoints=()):
-    """variant: "TBLS" (Viet et al.) or "TBLS+ILS" (TBLS that returns to its best matching
+    """variant: "TBLS" (Qiu 2025) or "TBLS+ILS" (TBLS that returns to its best matching
     and strategy after `restart_after` iterations below the best size).
 
     Returns a dict with assign (man -> woman or -1), singles, time, iters and, with

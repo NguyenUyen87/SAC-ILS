@@ -1,4 +1,4 @@
-"""Download and unpack the benchmark of Qiu et al. (2025) (Science Data Bank,
+"""Download and unpack the benchmark of Qiu (2025) (Science Data Bank,
 https://www.scidb.cn/en/s/ZfauMn): Instances.rar (small and large sets, 2.2 GB) and
 Instances-scalability.rar (scalability set, 0.4 GB). Downloads resume after an
 interruption and are checked against their MD5. Only the folders used here are

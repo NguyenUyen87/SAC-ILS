@@ -4,7 +4,7 @@ Instance sets: see experiments/common.py (small, large, opt, scal, cfg).
 Methods
   SACILS        SAC-ILS, final configuration (kick k, at most 16 men, 5000 nodes, random order)
   SAC           chains from the Gale-Shapley matching until none is found, no perturbation
-  TBLS          TBLS (Viet et al.), sacsmti.tbls
+  TBLS          TBLS (Qiu 2025), sacsmti.tbls
   TBLS+ILS      control TBLS-ILS: TBLS returning to its best matching after 50 idle iterations
   ILS[adj]      control ILS-ADJ: the ILS of SAC-ILS with the TBLS adjustments as local search
   ILS           SAC-ILS with the initial candidate order (single women first, then by preference)

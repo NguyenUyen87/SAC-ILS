@@ -140,6 +140,13 @@ def one_thread():
     put("scal.SACILS.perturb.max", it["SACILS"].max(), "{:,.0f}")
     put("scal.TBLS.iters.max", it["TBLS"].max(), "{:,.0f}")
     put("SAC.large.time", data["large"][data["large"].method == "SAC"].wall.mean())
+    put("SAC.opt.time", data["opt"][data["opt"].method == "SAC"].wall.mean())
+    # SAC-ILS with the first seed only, for the one-seed design variants (Table "variants")
+    for s in ("large", "opt"):
+        d0 = data[s][(data[s].method == "SACILS") & (data[s].seed == 0)]
+        put(f"{s}.SACILS.seed0", d0.singles.mean())
+    for n, g in data["scal"][(data["scal"].method == "SACILS") & (data["scal"].seed == 0)].groupby("n"):
+        put(f"scal{int(n)}.SACILS.seed0", g.singles.mean(), "{:.1f}")
     for n, g in data["scal"][data["scal"].method == "SAC"].groupby("n"):
         put(f"SAC.scal{int(n)}.time", g.wall.mean(), "{:.0f}")
     # --- comparisons: effect of chains (RQ2)
@@ -306,7 +313,8 @@ def analyses():
         put(f"why.{k}", str(v))
     put("why.stablepct", 100 * tot["stable_path"] / tot["aug_components"], "{:.1f}")
     put("why.worsepct", 100 * tot["worse_off"] / tot["aug_components"], "{:.1f}")
-    put("why.sizepreserving", str(tot["cycles"] + tot["even_paths"] + tot["reverse_paths"]))
+    put("why.sizepreserving", str(tot["cycles"] + tot["even_paths"]))
+    assert tot["gains"] == tot["aug_components"] - tot["reverse_paths"]
     c = pd.read_csv(os.path.join(RUNS, "chain_stats.csv"))
     put("chains.count", str(len(c)))
     put("chains.worse", str(int(c.worse_off.sum())))
@@ -345,7 +353,7 @@ def analyses():
         d = d[d.alg == "TBLS"]
         assert (d.stable == 1).all()
         put(f"repro.{s}", d.singles.mean(), "{:.3f}")
-        put(f"repro.{s}.count", f"{len(d):,}".replace(",", "{,}"))
+        put(f"repro.{s}.count", f"{len(d):,}".replace(",", "{,}") if len(d) >= 10000 else str(len(d)))
 
 
 def tuning():

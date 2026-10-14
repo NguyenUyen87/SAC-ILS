@@ -2,7 +2,7 @@
 
 Lists: men[m] = {w: rank}, women[w] = {m: rank}; 0-based ids, ranks >= 1, equal
 ranks are ties, smaller is better.
-Files: the JSON format of the benchmark of Qiu et al. (2025): {"men_preference":
+Files: the JSON format of the benchmark of Qiu (2025): {"men_preference":
 {"m_i": {"w_j": rank from 0}}, "women_preference": {"w_j": {"m_i": rank from 0}}}.
 """
 import json

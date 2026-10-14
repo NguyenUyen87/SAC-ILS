@@ -1,5 +1,5 @@
-"""Mersenne-Twister stream shaped like MATLAB's rand/randi (used by TBLS and the baselines,
-so that the random draws are those of the original MATLAB code of TBLS)."""
+"""Mersenne-Twister stream shaped like MATLAB's rand/randi, taken from the Python ports of the
+MATLAB code of MCS, AS and LTIU; also used by TBLS and SAC-ILS for tie-breaking."""
 import math
 
 import numpy as np

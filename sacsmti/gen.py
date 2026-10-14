@@ -1,11 +1,11 @@
 """Random MAX-SMTI instances.
 
-c1         the generator of Gent and Prosser (2002) as used by TBLS (Viet et al.): each pair
+c1         the generator of Gent and Prosser (2002) as used by TBLS (Qiu 2025): each pair
            acceptable with probability 1-p1, uniformly random orders, the next agent tied
            with the previous one with probability p2 (or geometric tie lengths, `geom`).
            Returns a dense Instance (rank matrices).
 sparse_c1  sparse version of c1 for large n (lists of mean length `length`) with the
-           geometric ties of Qiu et al. (2025); used for the generated configurations and the
+           geometric ties of Qiu (2025); used for the generated configurations and the
            very large and development instances. Returns sparse lists.
 
 The functions are written for HRT (capacities); SMTI is the case of n "hospitals"

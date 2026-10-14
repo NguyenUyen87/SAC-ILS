@@ -1,7 +1,7 @@
 # Stable augmenting chains for MAX-SMTI
 
-Code, data references and result files for the paper *Stable augmenting chains: a local
-search for maximum weakly stable matchings with ties and incomplete lists*.
+Code, data references and result files for the paper *Stable Augmenting Chains for the
+Maximum SMTI Problem* (U. T. Nguyen and S. X. Tran).
 
 The repository contains the algorithms (SAC, SAC-ILS and every method they are compared
 with), one script per experiment, a runner that executes all experiments of the paper in
@@ -13,7 +13,7 @@ compute every number, table and figure of the paper from result files.
 | Path | Content |
 |---|---|
 | `sacsmti/sac.py` | stable augmenting chains: chain search, SAC (`sac_search`), SAC-ILS (`sac_ils`) and its variants |
-| `sacsmti/tbls.py` | TBLS (Viet et al.) and the TBLS-ILS control; Gale–Shapley start and TBLS disruption |
+| `sacsmti/tbls.py` | TBLS (Qiu 2025) and the TBLS-ILS control; Gale–Shapley start and TBLS disruption |
 | `sacsmti/exact.py`, `sacsmti/ilp_delorme.py` | CP-SAT on the integer programming model; preprocessing and models M1–M4 of Delorme et al. (2019) |
 | `sacsmti/lns.py` | exact neighbourhood re-optimisation (SAC-ILS-LNS, analysis of exact repairs) |
 | `sacsmti/baselines/` | published methods: CKY, HR, MCS, AS, LTIU |
@@ -21,7 +21,7 @@ compute every number, table and figure of the paper from result files.
 | `experiments/` | one script per experiment (see the table below) |
 | `run_experiments.py` | runs every experiment, then the analysis |
 | `analysis/make_numbers.py`, `analysis/make_figures.py` | every number, table and figure of the paper from a result directory |
-| `data/get_data.py` | downloads the benchmark of Qiu et al. (2025); `data/opt_set.csv` lists the 68 instances with a proven optimum |
+| `data/get_data.py` | downloads the benchmark of Qiu (2025); `data/opt_set.csv` lists the 68 instances with a proven optimum |
 | `results/reference/` | result files of the paper (Apple M5 laptop; see `machine.json`) |
 | `tests/` | unit tests, brute-force checks on small instances, and reference values of the paper's code |
 

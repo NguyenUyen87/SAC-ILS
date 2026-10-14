@@ -1,4 +1,4 @@
-"""TBLS on the whole benchmark of Qiu et al. (2025) with the settings of the TBLS paper:
+"""TBLS on the whole benchmark of Qiu (2025) with the settings of the TBLS paper:
 3000 iterations, k_u = k_w = 1 (n = 100) or 5 (n = 1000). Reproduces the published
 results of TBLS (Section 5.1) and shows that the large instances with p1 <= 0.97 leave
 little room for improvement.
