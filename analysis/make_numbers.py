@@ -48,7 +48,7 @@ NUM = {}
 FAMILY = []
 RNG = np.random.default_rng(0)
 NAMES = {"SACILS": "\\sacils{}", "SAC": "SAC", "ILS[adj]": "ILS-ADJ", "TBLS+ILS": "TBLS-ILS", "TBLS": "TBLS",
-         "CPSAT1": "CP-SAT, 1 worker", "CP-SAT": "CP-SAT", "CPSAT-M1pre": "CP-SAT, preproc.", "SACILS[path]": "stable paths",
+         "CPSAT1": "CP-SAT, one worker", "CP-SAT": "CP-SAT", "CPSAT-M1pre": "CP-SAT, preproc.", "SACILS[path]": "stable paths",
          "ILS": "preference order", "SACILS[both]": "both sides", "SACILS[lns]": "\\sacils{}-LNS"}
 
 
@@ -139,8 +139,8 @@ def one_thread():
     put("scal.SACILS.perturb.min", it["SACILS"].min(), "{:,.0f}")
     put("scal.SACILS.perturb.max", it["SACILS"].max(), "{:,.0f}")
     put("scal.TBLS.iters.max", it["TBLS"].max(), "{:,.0f}")
-    put("SAC.large.time", data["large"][data["large"].method == "SAC"].wall.mean())
-    put("SAC.opt.time", data["opt"][data["opt"].method == "SAC"].wall.mean())
+    put("SAC.large.time", data["large"][data["large"].method == "SAC"].wall.mean(), "{:.1f}")
+    put("SAC.opt.time", data["opt"][data["opt"].method == "SAC"].wall.mean(), "{:.1f}")
     # SAC-ILS with the first seed only, for the one-seed design variants (Table "variants")
     for s in ("large", "opt"):
         d0 = data[s][(data[s].method == "SACILS") & (data[s].seed == 0)]
@@ -148,7 +148,7 @@ def one_thread():
     for n, g in data["scal"][(data["scal"].method == "SACILS") & (data["scal"].seed == 0)].groupby("n"):
         put(f"scal{int(n)}.SACILS.seed0", g.singles.mean(), "{:.1f}")
     for n, g in data["scal"][data["scal"].method == "SAC"].groupby("n"):
-        put(f"SAC.scal{int(n)}.time", g.wall.mean(), "{:.0f}")
+        put(f"SAC.scal{int(n)}.time", g.wall.mean(), "{:.1f}")
     # --- comparisons: effect of chains (RQ2)
     for s in ("large", "opt"):
         for m in ("ILS[adj]", "TBLS+ILS", "TBLS"):
@@ -421,7 +421,7 @@ def holm():
         lines.append(f"{r.label} & {NAMES.get(r.vs, r.vs)} & {r.n} & "
                      f"{r['diff']:.2f} [{r.lo:.2f}, {r.hi:.2f}] & {r.better}/{r.worse} & ${fmt_p(r.p_holm)}$\\\\")
     head = ("\\linespread{1}\\selectfont\\scriptsize\\setlength{\\tabcolsep}{2pt}\n\\begin{tabular}{@{}llrrrr@{}}\n\\toprule\n"
-            "Set & Other method & $N$ & difference [95\\% CI] & b/w & $p$\\\\\n\\midrule\n")
+            "Set & Other method & inst. & difference [95\\% CI] & b/w & $p$\\\\\n\\midrule\n")
     tail = "\n\\botrule\n\\end{tabular}"
     starts = [i for i, l in enumerate(lines) if "multicolumn" in l]       # family headers
     cut = min(starts, key=lambda i: abs(i - len(lines) / 2))              # boundary closest to the middle
